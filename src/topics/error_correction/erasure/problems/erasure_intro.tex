@@ -9,25 +9,20 @@ We want to send $n$ packets and we know that $k$ packets could get lost. \newlin
 How many more points does Alice need to send to account for $k$ possible errors?
 \line(1,0){10}
 \begin{solution}
-$k$
+$k$. Since we have constructed an $n - 1$ degree polynomial we will need $n$ points to recover the polynomial, so $n - k + k = n$.
 \end{solution}
 
 What degree will the resulting polynomial be? \line(1,0){15}
 \begin{solution}
-$n - 1$
+$n - 1$. We need the polynomial to encode all of the degrees of freedom from the packets. A $k$ degree polynomial has $k + 1$ degrees of freedom, so for $n$ degrees of freedom we need a polynomial of degree $n - 1$.
 \end{solution}
 
-How large should $q$ be if Alice is sending n packets with k erasure errors, 
-where each packet has $b$ bits?
-\newline
-\vspace{2cm}
+How large should $q$ be if Alice is sending n packets with k erasure errors, where each packet has $b$ bits?
 \begin{solution}
-Modulus should be larger than $n+k$ and larger than $2^b$ and be prime
+Modulus should be larger than $n+k$ and larger than $2^b$ and be prime since these will be to domain and range of our polynomial function (the two axes on the graph representing it).
 \end{solution}
 
-What would happen if Alice instead send $n + k - 1$? Why will Bob be 
-unable to recover the message?
-\vspace{2cm}
+What would happen if Alice instead send $n + k - 1$? Why will Bob be unable to recover the message?
 \begin{solution}
 Bob will receive $n - 1$ distinct points and needs to reconstruct a 
 polynomial of degree $n - 1$. By Fact \#3 this is impossible. There are 
